@@ -17,11 +17,12 @@ a:hover { color:var(--color-acento-hover) }
 .wrap,.nav-wrap { width:min(1160px,calc(100% - 2.5rem)); margin-inline:auto }
 header { position:fixed; inset:0 0 auto; z-index:10; background:var(--color-superficie); border-bottom:1px solid var(--color-borde) }
 .nav-wrap,.brand,nav,.acciones,.pie,.servicio,.lamina-meta { display:flex; align-items:center }
-.nav-wrap { height:68px; gap:1rem; justify-content:space-between }
-.brand { gap:.6rem; font: bold 1.15rem var(--serif); text-decoration:none; white-space:nowrap }
+.nav-wrap { height:68px; gap:1rem; justify-content:space-between; font-family:"Segoe UI",system-ui,sans-serif }
+.brand { gap:.6rem; font-size:clamp(1.05rem,1.55vw,1.4rem); line-height:1.15; font-weight:650; letter-spacing:-.02em; text-decoration:none; white-space:nowrap }
+.brand em { color:var(--color-acento); font-style:normal }
 nav { gap:1.05rem }
 nav a,.nav-wa { text-decoration:none; font-size:.84rem; font-weight:600 }
-nav a { padding:.6rem 0; border-bottom:2px solid transparent }
+nav a { font-size:.9375rem; line-height:1.4; font-weight:500; color:var(--color-texto); padding:.6rem 0; border-bottom:2px solid transparent }
 nav a[aria-current] { color:var(--color-acento); border-color:currentColor }
 .nav-wa { border:1px solid var(--color-borde); padding:.45rem .8rem; border-radius:20px }
 .toggle { display:none; background:none; color:inherit; border:1px solid var(--color-borde); border-radius:10px; font-size:1.3rem; width:44px; height:44px; cursor:pointer }
@@ -36,10 +37,13 @@ p,address { color:var(--color-texto-suave) }
 .hero { background:radial-gradient(ellipse at 82% 55%,var(--color-superficie),var(--color-fondo) 63%); border-bottom:1px solid var(--color-borde) }
 .hero-grid,.dos,.noticias,.categorias { display:grid; gap:clamp(1.5rem,4vw,4rem) }
 .hero-grid { grid-template-columns:1fr .9fr; align-items:center; padding-block:clamp(3rem,6vw,6rem) }
-.rotulo,small,time,.lamina-meta { font:600 .72rem/1.5 ui-monospace,monospace; text-transform:uppercase; letter-spacing:.12em }
+.rotulo,small,time,.lamina-meta { font:550 .88rem/1.5 system-ui,sans-serif; letter-spacing:.015em }
 .rotulo { display:flex; align-items:center; gap:.7rem; color:var(--color-texto-suave) }
+.rotulo svg { color:var(--color-acento); flex:none }
 .rotulo span,small { color:var(--color-acento) }
-.raya { width:2rem; height:2px; background:var(--color-acento) }
+.puntos { flex:none; width:24px; height:6px; background:radial-gradient(circle,var(--color-acento) 2px,transparent 2.5px) left center / 8px 6px repeat-x }
+.icono { flex:none; vertical-align:middle }
+.nav-wa,.servicio a,.tarjeta a,.contactos a:not(.btn) { display:inline-flex; align-items:center; gap:.45rem; width:fit-content }
 .bajada { font-size:1.15rem; max-width:32rem }
 .acciones { gap:.75rem; flex-wrap:wrap; margin-top:1.8rem }
 .btn { display:inline-flex; gap:1rem; align-items:center; justify-content:center; padding:.78rem 1.05rem; border:1px solid transparent; border-radius:11px; font:650 .92rem/1.35 system-ui,sans-serif; text-decoration:none; cursor:pointer }
@@ -49,7 +53,7 @@ p,address { color:var(--color-texto-suave) }
 .lamina { isolation:isolate; overflow:hidden; position:relative; border:1px solid var(--color-borde); border-radius:14px; padding:1.2rem; background:var(--color-superficie); box-shadow:0 18px 48px #09000755 }
 .sello { position:relative; display:grid; place-items:center; min-height:180px; padding:1rem; background:repeating-radial-gradient(ellipse at 50% 130%,transparent 0 16px,var(--color-trama) 17px 18px,transparent 19px 32px) }
 .sello img { width:min(65%,290px); height:auto; filter:drop-shadow(0 10px 15px #09000766) }
-.lamina-meta { justify-content:space-between; color:var(--color-texto-suave); font-size:.66rem; padding:.4rem 0 .75rem; border-bottom:1px solid var(--color-borde) }
+.lamina-meta { justify-content:space-between; color:var(--color-texto-suave) }
 figcaption.lamina-meta { padding:.75rem 0 .4rem; border-bottom:0; border-top:1px solid var(--color-borde) }
 .bloque { padding-block:clamp(3.2rem,7vw,6rem) }
 .dos { grid-template-columns:1fr 1.1fr; align-items:start }
@@ -62,7 +66,7 @@ figcaption.lamina-meta { padding:.75rem 0 .4rem; border-bottom:0; border-top:1px
 .noticia { display:grid; grid-template-columns:34% 1fr; border-top:1px solid var(--color-borde); padding-top:1.2rem; gap:1.2rem }
 .noticia img,.tarjeta img { display:block; width:100%; object-fit:cover }
 .noticia img { height:100%; max-height:190px; border-radius:10px }
-.noticia time { font-size:.68rem; color:var(--color-texto-suave) }
+.noticia time { font-size:.82rem; color:var(--color-texto-suave) }
 .noticia h3,.tarjeta h3 { margin:.5rem 0 }
 .noticia p,.tarjeta p { font-size:.95rem }
 .categorias { grid-template-columns:repeat(3,1fr); gap:1.25rem }
@@ -89,8 +93,8 @@ textarea { resize:vertical } input::placeholder,textarea::placeholder { color:va
   html { --alto-navbar:68px; --sello-nav:clamp(108px,10vw,136px); scroll-padding-top:calc(var(--sello-nav) + 12px) }
   .nav-wrap { height:var(--alto-navbar) }
   main { padding-top:var(--alto-navbar) }
-  .brand { position:relative; height:100%; padding-left:calc(var(--sello-nav) + .6rem) }
-  .brand img { position:absolute; top:4px; left:0; width:var(--sello-nav); height:var(--sello-nav); filter:drop-shadow(0 3px 4px #09000755) }
+  .brand { --desfase:min(1.5rem,1.4vw); position:relative; height:100%; padding-left:calc(var(--sello-nav) + .6rem - var(--desfase)) }
+  .brand img { position:absolute; top:4px; left:calc(-1 * var(--desfase)); width:var(--sello-nav); height:var(--sello-nav); filter:drop-shadow(0 3px 4px #09000755) }
   .hero-grid { padding-top:max(6vw,calc(var(--sello-nav) - var(--alto-navbar) + 2rem)) }
   .nav-wa,.wa { background:var(--color-superficie); border-color:var(--color-texto-suave); color:var(--color-texto) }
   .nav-wa:hover,.wa:hover { background:var(--color-borde); border-color:var(--color-acento); color:var(--color-acento-hover) }
@@ -109,6 +113,9 @@ textarea { resize:vertical } input::placeholder,textarea::placeholder { color:va
   .dos { gap:1rem } .bloque { padding-block:3rem }
 }
 @media(prefers-reduced-motion:no-preference) {
+  :is(.btn,.nav-wa,.toggle,.tarjeta a,.servicio a,.contactos a) { transition:scale 160ms ease-out }
+  @media(hover:hover) { :is(.btn,.nav-wa,.toggle,.tarjeta a,.servicio a,.contactos a):hover:not(:disabled) { scale:1.04 } }
+  :is(.btn,.nav-wa,.toggle,.tarjeta a,.servicio a,.contactos a):active:not(:disabled) { scale:.97 }
   @keyframes aparecer { from { opacity:.65; transform:translateY(.5rem) } to { opacity:1; transform:none } }
   .hero-grid { animation:aparecer .4s ease-out }
   @supports (animation-timeline:view()) { .bloque { animation:aparecer linear both; animation-timeline:view(); animation-range:entry 0% entry 30% } }
