@@ -12,15 +12,15 @@ function Rotulo({ icono: Ilustracion, children }) {
 
 export default function Inicio() {
   return <>
-    <a className="saltar" href="#contenido">Saltar al contenido</a>
     <Nav />
-    <main id="contenido">
+    <main id="contenido" tabIndex={-1}>
       <section id="portada" className="hero">
         <div className="wrap hero-grid">
           <div>
-            <Rotulo icono={Store}>Taller familiar · Tomé, Chile</Rotulo>
-            <h1>Regalos <em>Pewen.</em></h1>
-            <p className="bajada">Regalos y artículos personalizados para celebrar a los tuyos o darle tu sello a un emprendimiento.</p>
+            <Rotulo icono={Store}>Microempresa Familiar</Rotulo>
+            <h1>Regalos <em>Pewen</em></h1>
+            <p className="lema">Calidad en cada detalle, compromiso en cada entrega</p>
+            <p className="bajada">Regalos, artículos personalizados y corporativos hechos con dedicación, comprometidos con la calidad</p>
             <div className="acciones"><a className="btn principal" href="#catalogo"><Icono nombre="regalo" />Ver catálogo</a>
               <a className="btn secundario" href={tienda.whatsapp} {...externo}><Icono nombre="chat" />Escríbenos por WhatsApp</a></div>
           </div>

@@ -1,6 +1,7 @@
 # Regalos Pewen
 
-Landing de un taller familiar en Tomé. No incluye cuentas, carrito, base de datos ni panel de administración.
+Sitio de una microempresa familiar en Tomé. Abre en Portada y muestra una sección a la vez, con un índice lateral en escritorio y un menú superior en móvil. Los enlaces directos como `/#catalogo` abren la sección correspondiente.
+No incluye cuentas, carrito, base de datos ni panel de administración.
 Los contactos, horarios, categorías y publicaciones se editan en [data/tienda.js](./data/tienda.js).
 Las dos novedades son ejemplos editoriales; si se vacía la lista se muestra un aviso.
 El logo, favicon y sello WebP vienen del kit del negocio. Las ilustraciones SVG son reemplazables por fotografías.
