@@ -30,10 +30,10 @@ export default function Inicio() {
           </figure>
         </div>
       </section>
-      <section id="quienes-somos" className="wrap bloque dos">
-        <div><Rotulo icono={HeartHandshake}>Quiénes somos</Rotulo><h2>Un taller de familia.</h2></div>
-        <div><p>Somos un emprendimiento familiar de Tomé. Hacemos regalos y artículos personalizados para negocios, cumpleaños y ocasiones especiales. Nos cuentas tu idea y conversamos directamente contigo sobre los materiales y el diseño.</p>
-          <aside className="servicio"><div><small>También en el taller</small><h3>Impresiones Pewen</h3></div><a href={tienda.impresiones} {...externo}><Icono nombre="instagram" />Ver Instagram</a></aside></div>
+      <section id="quienes-somos" className="wrap bloque historia">
+        <Rotulo icono={HeartHandshake}>Quiénes somos</Rotulo><h2>Un taller de familia.</h2>
+        <p>Somos un emprendimiento familiar de Tomé. Hacemos regalos y artículos personalizados para negocios, cumpleaños y ocasiones especiales. Nos cuentas tu idea y conversamos directamente contigo sobre los materiales y el diseño.</p>
+        <aside className="servicio"><div><small>También en el taller</small><h3>Impresiones Pewen</h3></div><a href={tienda.impresiones} {...externo}><Icono nombre="instagram" />Ver Instagram</a></aside>
       </section>
       <section id="novedades" className="franja"><div className="wrap bloque">
         <Rotulo icono={Newspaper}>Desde el taller</Rotulo><h2>Novedades</h2>

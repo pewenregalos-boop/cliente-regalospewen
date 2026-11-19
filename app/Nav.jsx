@@ -25,7 +25,9 @@ export default function Nav() {
     onBlur={e => { if (!e.currentTarget.contains(e.relatedTarget)) setAbierto(false); }}>
     <div className="nav-wrap">
       <a className="brand" href="#portada" onClick={() => setAbierto(false)}><img src="/marca.webp" srcSet="/marca.webp 96w, /sello.webp 512w" sizes="(width > 960px) clamp(108px, 10vw, 136px), 42px" width="42" height="42" alt="" /><span>Regalos <em>Pewen</em></span></a>
-      <button ref={boton} className="toggle" aria-controls="menu" aria-expanded={abierto} aria-label={abierto ? "Cerrar menú" : "Abrir menú"} onClick={() => setAbierto(!abierto)}>{abierto ? "✕" : "☰"}</button>
+      <button ref={boton} className="toggle" aria-controls="menu" aria-expanded={abierto} aria-label={abierto ? "Cerrar menú" : "Abrir menú"} onClick={() => setAbierto(!abierto)}>
+        <span aria-hidden="true" /><span aria-hidden="true" /><span aria-hidden="true" />
+      </button>
       <nav id="menu" aria-label="Secciones" className={abierto ? "open" : ""}>{secciones.map(([id, texto]) =>
         <a key={id} href={`#${id}`} aria-current={activo === id ? "location" : undefined} onClick={() => setAbierto(false)}>{texto}</a>)}</nav>
       <a className="nav-wa" href={tienda.whatsapp} rel="noopener" target="_blank" aria-label="WhatsApp"><Icono nombre="chat" /><span>WhatsApp</span></a>

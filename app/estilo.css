@@ -57,9 +57,11 @@ p,address { color:var(--color-texto-suave) }
 .sello img { width:min(65%,290px); height:auto; filter:drop-shadow(0 10px 15px var(--color-sombra)) }
 .lamina-meta { justify-content:space-between; color:var(--color-texto-suave) }
 figcaption.lamina-meta { padding:.75rem 0 .4rem; border-bottom:0; border-top:1px solid var(--color-borde) }
-.bloque { padding-block:clamp(3.2rem,7vw,6rem) }
-.dos { grid-template-columns:1fr 1.1fr; align-items:start }
-.servicio { gap:1rem; justify-content:space-between; margin-top:1.5rem; border-top:1px solid var(--color-borde); padding-top:1.15rem; flex-wrap:wrap }
+.bloque { padding-block:clamp(2rem,5vh,4rem) }
+.dos { max-width:64rem; grid-template-columns:1fr 1.1fr; align-items:center }
+.historia { max-width:44rem }
+.historia > p:not(.rotulo) { font-size:clamp(1.05rem,1.4vw,1.22rem); line-height:1.7 }
+.servicio { gap:1rem; justify-content:space-between; margin-top:1.5rem; border-left:3px solid var(--color-marca); border-radius:8px; background:var(--color-superficie); padding:1.25rem; flex-wrap:wrap }
 .servicio h3 { margin-top:.3rem }
 .servicio a,.tarjeta a,.contactos a:not(.btn) { color:var(--color-acento) }
 .franja,footer { background:var(--color-superficie); border-block:1px solid var(--color-borde) }
@@ -98,14 +100,25 @@ textarea { resize:vertical } input::placeholder,textarea::placeholder { color:va
   .brand img { width:clamp(108px,10vw,136px); height:auto }
   nav { align-items:stretch; gap:.3rem }
   main,footer { margin-left:var(--ancho-indice) }
-  main { padding-top:0; min-height:calc(100dvh - 5rem) }
+  body { min-height:100dvh; display:flex; flex-direction:column }
+  main { padding-top:0; flex:1; display:grid; align-items:center }
+  main > :is(.franja,.hero) { align-self:stretch; align-content:center }
   .nav-wa,.wa { background:var(--color-superficie); border-color:var(--color-texto-suave); color:var(--color-texto) }
   .nav-wa:hover,.wa:hover { background:var(--color-borde); border-color:var(--color-acento); color:var(--color-acento-hover) }
 }
 @media(max-width:960px) {
-  .toggle { display:block; order:1 } .nav-wa { margin-left:auto }
-  nav { display:none; position:absolute; top:68px; inset-inline:0; background:var(--color-superficie); border-bottom:1px solid var(--color-borde); padding:.75rem 1.25rem; max-height:calc(100dvh - 68px); overflow:auto }
-  nav.open { display:grid; gap:0 }
+  .toggle { display:grid; place-content:center; gap:4px; order:1 } .nav-wa { margin-left:auto }
+  .toggle span { width:20px; height:2px; border-radius:2px; background:currentColor }
+  .toggle[aria-expanded=true] span:first-child { transform:translateY(6px) rotate(45deg) }
+  .toggle[aria-expanded=true] span:nth-child(2) { opacity:0 }
+  .toggle[aria-expanded=true] span:last-child { transform:translateY(-6px) rotate(-45deg) }
+  nav { display:grid; gap:0; position:absolute; top:68px; inset-inline:0; background:var(--color-superficie); border-bottom:1px solid var(--color-borde); padding:.75rem 1.25rem; max-height:calc(100dvh - 68px); overflow:auto; visibility:hidden; pointer-events:none; transform:translateY(-100%); clip-path:inset(100% 0 0) }
+  nav.open { visibility:visible; pointer-events:auto; transform:translateY(0); clip-path:inset(0) }
+  @media(prefers-reduced-motion:no-preference) {
+    nav { --deslizamiento:360ms cubic-bezier(.33,0,.2,1); transition:transform var(--deslizamiento), clip-path var(--deslizamiento), visibility 0s 360ms }
+    nav.open { transition-delay:0s }
+    .toggle span { transition:transform 220ms ease, opacity 160ms ease }
+  }
   .noticia { display:block } .noticia img { height:auto; margin-bottom:.8rem }
 }
 @media(max-width:700px) {
@@ -113,7 +126,7 @@ textarea { resize:vertical } input::placeholder,textarea::placeholder { color:va
   h1 em { display:inline } h1 { font-size:clamp(3.6rem,13vw,5.5rem) }
   .hero-grid { padding-block:2.6rem } .sello img { max-width:180px } .sello { min-height:0 }
   .nav-wrap { gap:.45rem } .brand { gap:.35rem } .nav-wa { padding:.45rem }
-  .dos { gap:1rem } .bloque { padding-block:3rem }
+  .dos { gap:1.5rem } .bloque { padding-block:2rem }
 }
 @media(max-width:390px) {
   .nav-wrap { width:calc(100% - 1rem) }
@@ -124,6 +137,6 @@ textarea { resize:vertical } input::placeholder,textarea::placeholder { color:va
   :is(.btn,.nav-wa,.toggle,.tarjeta a,.servicio a,.contactos a) { transition:scale 160ms ease-out }
   @media(hover:hover) { :is(.btn,.nav-wa,.toggle,.tarjeta a,.servicio a,.contactos a):hover:not(:disabled) { scale:1.04 } }
   :is(.btn,.nav-wa,.toggle,.tarjeta a,.servicio a,.contactos a):active:not(:disabled) { scale:.97 }
-  @keyframes aparecer { from { opacity:.65; transform:translateY(.5rem) } to { opacity:1; transform:none } }
-  .hero-grid { animation:aparecer .4s ease-out }
+  @keyframes aparecer { from { opacity:.8; translate:0 4px } to { opacity:1; translate:0 0 } }
+  main > .wrap,.hero-grid,.franja > .wrap { animation:aparecer .32s cubic-bezier(.2,.7,.3,1) }
 }
