@@ -31,9 +31,29 @@ export default function Inicio() {
         </div>
       </section>
       <section id="quienes-somos" className="wrap bloque historia">
-        <Rotulo icono={HeartHandshake}>Quiénes somos</Rotulo><h2>Un taller de familia.</h2>
-        <p>Somos un emprendimiento familiar de Tomé. Hacemos regalos y artículos personalizados para negocios, cumpleaños y ocasiones especiales. Nos cuentas tu idea y conversamos directamente contigo sobre los materiales y el diseño.</p>
-        <aside className="servicio"><div><small>También en el taller</small><h3>Impresiones Pewen</h3></div><a href={tienda.impresiones} {...externo}><Icono nombre="instagram" />Ver Instagram</a></aside>
+        <div className="historia-portada">
+          <div>
+            <Rotulo icono={HeartHandshake}>Quiénes somos</Rotulo><h2>Una microempresa familiar</h2>
+            <p className="historia-entrada">Regalos Pewen es un emprendimiento familiar que renace del deseo de responder a las necesidades de las personas y empresas de Tomé, comuna que elegimos como nuestro hogar a comienzos de 2024.</p>
+          </div>
+          <figure className="lamina historia-retrato">
+            <img src="/image/WhatsApp Image 2026-11-19 at 23.15.38.jpeg" width="640" height="640" loading="lazy" alt="Ilustración de la familia de Regalos Pewen en su taller de Tomé, junto a sus regalos personalizados" />
+            <figcaption className="lamina-meta"><span>Regalos Pewen</span><span className="puntos" aria-hidden="true" /><span>Tomé · Biobío</span></figcaption>
+          </figure>
+        </div>
+        <div className="historia-relato">
+        <p>Somos parte de Universo Pewen, un proyecto que reúne nuestros tres emprendimientos familiares: Regalos Pewen, enfocado en la creación de productos y regalos personalizados; Impresiones Pewen, dedicado a la papelería y los servicios de impresión; y Püran Pewen, orientado al entretenimiento y la diversión familiar.</p>
+        <p>En Regalos Pewen trabajamos para ofrecer soluciones personalizadas tanto a particulares como a empresas, adaptándonos a sus ideas, necesidades y proyectos.</p>
+        <p>Creemos que cada cliente y cada proyecto merecen una atención especial. Por eso, ponemos dedicación en cada detalle, buscando entregar productos de calidad, un servicio responsable junto a una atención cercana y personalizada.</p>
+        <p>Más que ofrecer productos, queremos construir relaciones de confianza, crecer junto a nuestra comunidad y ser parte de esos momentos y proyectos que son importantes para nuestros clientes.</p>
+        <aside className="servicio"><div><h3>Síguenos en nuestras redes</h3>
+          <div className="contactos">
+            <a href={tienda.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram de Regalos Pewen"><Icono nombre="instagram" />@regalos.pewen</a>
+            <a href={tienda.impresiones} target="_blank" rel="noopener noreferrer" aria-label="Instagram de Impresiones Pewen"><Icono nombre="instagram" />@impresiones.pewen</a>
+            <a href="https://www.instagram.com/puran.pewen/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Püran Pewen"><Icono nombre="instagram" />@puran.pewen</a>
+          </div>
+        </div></aside>
+        </div>
       </section>
       <section id="novedades" className="franja"><div className="wrap bloque">
         <Rotulo icono={Newspaper}>Desde el taller</Rotulo><h2>Novedades</h2>

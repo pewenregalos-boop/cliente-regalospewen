@@ -59,8 +59,23 @@ p,address { color:var(--color-texto-suave) }
 figcaption.lamina-meta { padding:.75rem 0 .4rem; border-bottom:0; border-top:1px solid var(--color-borde) }
 .bloque { padding-block:clamp(2rem,5vh,4rem) }
 .dos { max-width:64rem; grid-template-columns:1fr 1.1fr; align-items:center }
-.historia { max-width:44rem }
-.historia > p:not(.rotulo) { font-size:clamp(1.05rem,1.4vw,1.22rem); line-height:1.7 }
+.historia { max-width:64rem }
+.historia-portada { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.85fr); align-items:center; gap:clamp(2rem,5vw,5rem) }
+.historia-entrada { font:1.25rem/1.6 var(--serif); color:var(--color-texto) }
+.historia-retrato { width:min(100%,25rem); justify-self:center; padding:clamp(.65rem,1.4vw,1rem); rotate:1deg }
+.historia-retrato img { display:block; width:100%; height:auto; border-radius:8px }
+.historia-retrato figcaption { margin-top:.65rem }
+.historia-relato { max-width:67ch; margin:clamp(2rem,4vw,3.5rem) auto 0; border-top:1px solid var(--color-borde); padding-top:clamp(1.5rem,3vw,2.5rem) }
+.historia-relato > p { font-size:clamp(1.05rem,1.4vw,1.22rem); line-height:1.7 }
+.historia-relato > p + p { margin-top:1em }
+@media(max-width:700px) {
+  .historia-portada { grid-template-columns:1fr; gap:1.5rem }
+  .historia-retrato { width:min(92%,20rem) }
+}
+@media(prefers-reduced-motion:no-preference) {
+  @keyframes revelar-retrato { from { opacity:.5; translate:0 .65rem; rotate:-1deg } }
+  .historia-retrato { animation:revelar-retrato .55s ease-out }
+}
 .servicio { gap:1rem; justify-content:space-between; margin-top:1.5rem; border-left:3px solid var(--color-marca); border-radius:8px; background:var(--color-superficie); padding:1.25rem; flex-wrap:wrap }
 .servicio h3 { margin-top:.3rem }
 .servicio a,.tarjeta a,.contactos a:not(.btn) { color:var(--color-acento) }
